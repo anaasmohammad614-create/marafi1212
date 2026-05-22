@@ -11,11 +11,11 @@ interface ProductItem {
   imagePath?: string;
 }
 
-export default function Products({ data }: { data?: ProductItem[] }) {
+export default function Products({ data }: { data?: any[] }) {
   const products = ((data && data.length > 0) ? data : FALLBACK_PRODUCTS).map((p: any) => ({
     ...p,
     imgUrl: p.image
-      ? urlFor(p.image as object).width(600).height(700).url()
+      ? urlFor(p.image).width(600).height(700).url()
       : p.imagePath || '/product-gaskets.png',
   }));
 
