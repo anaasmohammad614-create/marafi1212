@@ -12,7 +12,7 @@ interface ProductItem {
 }
 
 export default function Products({ data }: { data?: ProductItem[] }) {
-  const products: (ProductItem & { imgUrl: string })[] = ((data && data.length > 0) ? data : FALLBACK_PRODUCTS).map((p) => ({
+  const products = ((data && data.length > 0) ? data : FALLBACK_PRODUCTS).map((p: any) => ({
     ...p,
     imgUrl: p.image
       ? urlFor(p.image as object).width(600).height(700).url()
